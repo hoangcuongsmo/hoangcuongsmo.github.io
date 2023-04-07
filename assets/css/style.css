@@ -1,0 +1,576 @@
+:root {
+    --global-blue: #0a2e5a;
+    --global-white: #FFFFFF;
+    --global-white-8: rgba(255,255,255 , .8);
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+body,
+html {
+    overflow: hidden;
+    overflow-x: hidden;
+}
+@keyframes star_trails {
+    0% {
+        transform: translate(-100%, -50%);
+    }
+    100% {
+        transform: translate(100vw, -50%);
+    }
+}
+.main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+.main::after,
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-image: url('../images/background-color.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    transition: all 1s ease-in-out;
+}
+.main::before {
+    background-image: none;
+    z-index: 0;
+    opacity: 0;
+    background-image: url('../images/background.png');
+    transition: all 1s ease-in-out;
+}
+.main.before-show::before {
+    opacity: .3;
+}
+.move-line {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate(-110%, -50%);
+    /* transform: translate(0%, -50%) !important; */
+    transition-timing-function: linear;
+}
+.move-line svg {
+    width: 150%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+/* .move-line::before {
+    content: '';
+    display: block;
+    width: calc(100% - 100px);
+    position: absolute;
+    height: 2px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--global-white);
+    box-shadow: 0px 0px 6px var(--global-white);
+} */
+.move-line::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    display: block;
+    background-image: url(../images/spark.svg);
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+.star-click {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 100;
+    width: 100%;
+}
+.star-click.hidden {
+    cursor: default;
+}
+@keyframes bouncing-jump {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
+.star-click img {
+    transition: transform 0.5s ease-in-out;
+    opacity: 0.6;
+    transform: scale(0.8);
+    animation-timing-function: ease;
+    animation: bouncing-jump 1s infinite alternate;
+}
+.star-click__text {
+    font-size: 40px;
+    color: white;
+    padding: 0 15px;
+}
+.star-click__text svg {
+    max-width: 100%;
+}
+.season-greeting {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+#season-greeting #Path_167-2 {
+    stroke: white;
+}
+@keyframes dash_1617 {
+    from {
+        stroke-dashoffset: 1617;
+    } to {
+        stroke-dashoffset: 0;
+    }
+}
+#season-greeting {
+    width: 100%;
+    min-width: 450px;
+    max-width: 800px;
+    transform: scale(1.3);
+    overflow: visible;
+}
+#star-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240%;
+    height: 120vh;
+    background-color: bisque;
+    display: block;
+    transform: translate(-50%, -50%);
+}
+@keyframes donut {
+    from {
+        opacity: .2; 
+    }
+    to {
+        opacity: 1;
+    }
+}
+#a4fe8d41-c939-41c7-b84f-11affc18a62a path {
+    opacity: 1;
+    fill: white;
+    /* animation: donut 2s forwards; */
+}
+#a4fe8d41-c939-41c7-b84f-11affc18a62a path.show {
+    opacity: 1;
+}
+#donut, 
+.st26 {
+    display: none;
+}
+#snow-circle,
+#season-greeting {
+    /* display: none; */
+}
+.final-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 400px;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* visibility: hidden; */
+}
+.final-div > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#zimmer-logo {
+    opacity: 0;
+    transition: all 2s ease-in-out;
+}
+#zimmer-logo.animated {
+    opacity: 1;
+}
+.st2.animated {
+    transition: opacity .2s ease-in-out;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 1000;
+    animation: dash 3s linear forwards;
+}
+#Subtraction_5 {
+    opacity: 0;
+}
+.logo-container {
+    width: 430px;
+    position: absolute;
+}
+#logo {
+    transition: all 1s ease-in-out;
+    /* margin-bottom: 40px; */
+}
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.bottom-logo {
+    width: 100%;
+}
+.bottom-logo img {
+    max-width: 240px;
+}
+#from-all-of-us,
+#warmest-thoughts,
+.bottom-logo {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+#warmest-thoughts {
+    margin-bottom: 30px;
+}
+#from-all-of-us {
+    margin-bottom: 10px;
+}
+.zimmer-logo__fake {
+    margin: 0 auto 40px;
+}
+/* .line-on-1 {
+    stroke-dasharray: 255;
+    stroke-dashoffset: 255;
+    animation: dash 5s backwards infinite;
+}
+    
+@keyframes abcd {
+    from {
+        stroke-dashoffset: 255;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+} */
+.line-on-1 {
+    fill: none;
+    stroke: #fff;
+    /* stroke-dasharray: 255; */
+    stroke-dashoffset: 0;
+}
+
+/* Apply the animation to each mask */
+.line-on-1 {
+    animation: strokeOffset 5s linear backwards;
+}
+#season-greeting .st5 {
+    stroke: white;
+    fill: #FFFFFF;
+}
+/* #season-greeting .st1 {
+    fill: white;
+} */
+.seasions-line {
+    opacity: 0;
+}
+#snow-circle {
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: auto;
+}
+#season-greeting #Group_57 path {
+    fill: white;
+}
+#Group_57 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.middle-start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#snow-circle .st1,
+#snow-circle .st2,
+#snow-circle .st3,
+#snow-circle .st4,
+#snow-circle .st5,
+#snow-circle .st6,
+#snow-circle .st7,
+#snow-circle .st8,
+#snow-circle .st9, #snow-circle .st10, #snow-circle .st11 {
+    /* fill: transparent; */
+}
+#seasons-greetings-path path {
+    fill: transparent;
+    transform-origin: 50% 50%;
+    stroke-width: 6;
+    stroke: white;
+    shape-rendering: auto;
+    /* transition: filter .2s ease-in-out; */
+}
+#seasons-greetings-path path.filter {
+    filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, .7));
+    -webkit-filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, .7));
+}
+.season-greeting {
+    opacity: 0;
+    /* transform: translate(70%, 50%) scale(2); */
+    /* transform: translate(-50%, -50%) scale(1) !important; */
+    /* transform: translate(-150%, 100%) scale(2) !important; */
+}
+.snowdonunt-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -25%);
+    width: 75%;
+}
+
+#a4fe8d41-c939-41c7-b84f-11affc18a62a path,
+#a4fe8d41-c939-41c7-b84f-11affc18a62a circle {
+    z-index: 1000;
+    fill: white;
+    transform-origin: center;
+    opacity: 0;
+    /* filter: drop-shadow( 0px 0px 3px rgba(255, 255, 255, .7)); */
+}
+#season-greeting #Path_167-2_11_ {
+    opacity: 1 !important;
+}
+#logo-spark {
+    opacity: 0;
+}
+.final-div .zimmer-stroke  {
+    fill: transparent;
+    stroke: #FFFFFF;
+    opacity: 0;
+}
+#spark {
+    opacity: 0;
+    transform: translate(-497.402px,-130.189px);
+}
+
+
+.sound {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1000;
+}
+.sound-btn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 30px;
+}
+.sound p {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--global-white);
+    line-height: 1.5;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    margin-left: 12px;
+    cursor: pointer;
+}
+.sound img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: block;
+}
+.sound .sound-off {
+    display: none;
+}
+.on .sound-on {
+    display: none;
+}
+.on .sound-off {
+    display: block;
+}
+.sound #audio {
+    visibility: hidden;
+    display: none;
+}
+#logo-spark {
+    transform: matrix(-0.14834,0.98894,-0.98894,-0.14834,451.8149,-436.9047);
+}
+#fairyDust {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+#snows-drop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#snows-drop .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+@keyframes snowDrop {
+    from {
+        top: 0;
+    }
+    to {
+        top: 110vh;
+    }
+}
+#snows-drop img {
+    position: absolute;
+    top: 0;
+    transform: translate(0, -100%);
+    animation-name: snowDrop;
+    animation-iteration-count: infinite;
+}
+
+/* Only FireFox */
+.firefox .season-greeting {
+    width: 31.25%;
+}
+.firefox #season-greeting {
+    min-width: auto;
+    max-width: none;
+}
+.firefox #snow-circle {
+    width: 100%;
+}
+.firefox .snow-circle-container {
+    width: 600px;
+}
+.firefox #snow-circle {
+    width: 245%;
+}
+/* .firefox .ssgr-container {
+    min-width: 450px;
+    max-width: 800px;
+    width: 100%;
+} */
+
+.ssgr-container {
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+}
+#logo-spark .st1 {
+    stroke: transparent !important;
+}
+#Effect {
+    opacity: 0;
+}
+#myCSV {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    z-index: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.upload-btn-container {
+    position: relative;
+}
+@media screen and (max-width: 1024px) {
+    #from-all-of-us, #warmest-thoughts, .bottom-logo {
+        max-width: 90vw;
+    }
+    #season-greeting {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #season-greeting {
+        min-width: auto;
+        max-width: 80vw;
+        transform: scale(1);
+    }
+    .logo-container {
+        width: 100%;
+    }
+    .final-div {
+        min-width: auto;
+    }
+    #logo {
+        max-width: 250px;
+    }
+    #warmest-thoughts {
+        margin-bottom: -20px;
+    }
+    .bottom-logo img {
+        max-width: 150px;
+    }
+
+}
+
+/* Nhap */
+/* .season-greeting    {
+    opacity: 1 !important;
+}
+.star-click {
+    display: none !important;
+}
+.season-greeting {
+    transform: translate(-50%, -50%) scale(1) !important;
+} */
+/* #a4fe8d41-c939-41c7-b84f-11affc18a62a path, #a4fe8d41-c939-41c7-b84f-11affc18a62a circle {
+    opacity: 1 !important;
+} */
+/* #season-greeting {
+    transform: scale(1);
+} */
+/* .season-greeting {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+#seasons-greetings-path path {
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+} */
+/* End Nhap  */
